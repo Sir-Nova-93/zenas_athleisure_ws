@@ -19,6 +19,8 @@ style_list = df[0].values.tolist()
 #streamlit.dataframe(style_list)
 choice = streamlit.selectbox("Pick a sweatsuit color or style:", list(style_list))
 
+streamlit.stop()
+
 # Requery Snowflake to return supporting data for the selection
 my_cur.execute("Select direct_url, price, size_list, upsell_product_desc from catalog_for_website where color_or_style = '" + choice + "' ;")
 df2 = my_cur.fetchone()
