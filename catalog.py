@@ -17,7 +17,7 @@ df = pandas.dataframe(catalog)
 
 style_list = df[0].values.tolist()
 #streamlit.dataframe(style_list)
-streamlit.multiselect("Pick a sweatsuit color or style:", list(style_list))
+choice = streamlit.selectbox("Pick a sweatsuit color or style:", list(style_list))
 
 # Image to view selected clothing
 
