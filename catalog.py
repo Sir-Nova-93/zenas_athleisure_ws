@@ -13,7 +13,7 @@ my_cur = my_cnx.cursor()
 my_cur.execute("Select distinct color_or_style from catalog_for_website")
 catalog = my_cur.fetchall()
 
-df = pandas.dataframe(catalog)
+df = pandas.DataFrame(catalog)
 
 style_list = df[0].values.tolist()
 #streamlit.dataframe(style_list)
