@@ -20,7 +20,9 @@ style_list = df[0].values.tolist()
 choice = streamlit.selectbox("Pick a sweatsuit color or style:", list(style_list))
 
 # Image to view selected clothing
-
+my_cur.execute("Select direct_url from catalog_for_website where color_or_style = '" + choice + "'")
+image_url = my_cur.fetchone()
+streamlit.image(image_url, caption='Our warm, comfortable, ' + choice + ' sweatsuit!')
 
 # Display caption/descriotion of clothing
 
