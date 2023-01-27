@@ -6,7 +6,11 @@ import snowflake.connector
 streamlit.title("Zena's Amazing Athleisure Catalog")
 
 # Drop down box to select Color/Style
-
+#streamlit.text("Pick a sweatsuit color or style:")
+my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+my_cur = my_cnx.cursor()
+style_list = my_cur.execute("Select distinct color_style from catalog_for_website")
+streamlit.multiselect("Pick a sweatsuit color or style:", list.style_list)
 
 # Image to view selected clothing
 
